@@ -3,188 +3,167 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Yeasin Khan | Digital Architect</title>
+<title>Yeasin Khan | Tech & Entrepreneurship</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;700;800&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
 
 <style>
 :root {
-  --bg: #050505;
-  --accent: #00f2fe;
-  --accent-2: #4facfe;
-  --text-dim: #a0a0a0;
-  --glass: rgba(255, 255, 255, 0.03);
+  --bg: #ffffff;
+  --text: #000000;
+  --accent: #ff4d00; /* Unique Vibrant Orange */
+  --secondary: #f4f4f4;
+  --border: #e0e0e0;
 }
 
 * {
   margin: 0; padding: 0; box-sizing: border-box;
-  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-family: 'Inter', sans-serif;
   scroll-behavior: smooth;
 }
 
-body {
-  background-color: var(--bg);
-  color: white;
-  overflow-x: hidden;
-}
+body { background: var(--bg); color: var(--text); line-height: 1.5; }
 
-::selection { background: var(--accent); color: #000; }
+h1, h2, h3, .logo { font-family: 'Space Grotesk', sans-serif; text-transform: uppercase; font-weight: 700; }
 
-.mesh {
-  position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-  background: radial-gradient(circle at 50% 50%, #1a1a1a 0%, #050505 100%);
-  z-index: -1;
-}
-
+/* Navigation */
 header {
-  position: fixed; width: 100%; padding: 25px 8%;
-  display: flex; justify-content: space-between; align-items: center;
-  backdrop-filter: blur(15px); z-index: 1000;
-  border-bottom: 1px solid rgba(255,255,255,0.05);
+  padding: 30px 5%; display: flex; justify-content: space-between; align-items: center;
+  position: sticky; top: 0; background: rgba(255,255,255,0.9); backdrop-filter: blur(10px); z-index: 100;
+  border-bottom: 1px solid var(--border);
 }
 
-.logo { font-family: 'Syne', sans-serif; font-size: 1.5rem; font-weight: 800; letter-spacing: -1px; }
+nav a { color: var(--text); text-decoration: none; margin-left: 30px; font-weight: 600; font-size: 14px; }
+nav a:hover { color: var(--accent); }
 
-nav a {
-  color: var(--text-dim); margin-left: 35px; text-decoration: none;
-  font-weight: 600; font-size: 0.9rem; transition: 0.4s;
-}
-
-nav a:hover { color: var(--accent); text-shadow: 0 0 10px var(--accent); }
-
+/* Hero Section */
 .hero {
-  height: 100vh; display: flex; flex-direction: column;
-  justify-content: center; align-items: center; text-align: center;
-  padding: 0 10%;
+  padding: 120px 5%; min-height: 80vh; display: flex; flex-direction: column; justify-content: center;
+  border-bottom: 1px solid var(--border);
 }
 
-.hero h1 {
-  font-family: 'Syne', sans-serif; font-size: clamp(50px, 10vw, 100px);
-  line-height: 0.9; margin-bottom: 20px; font-weight: 800;
-  background: linear-gradient(to bottom, #fff 40%, var(--accent-2));
-  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-  animation: fadeInUp 1s ease forwards;
+.hero h1 { font-size: clamp(40px, 8vw, 120px); line-height: 0.9; letter-spacing: -3px; margin-bottom: 30px; }
+.hero p { font-size: 1.2rem; max-width: 600px; color: #555; margin-bottom: 40px; }
+
+/* Section Logic */
+.section { padding: 100px 5%; border-bottom: 1px solid var(--border); }
+.section-title { font-size: 12px; color: var(--accent); margin-bottom: 40px; display: block; letter-spacing: 2px; }
+
+/* Skills Grid - Unique Layout */
+.skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2px; background: var(--border); }
+.skill-item { background: var(--bg); padding: 50px 30px; transition: 0.3s; }
+.skill-item:hover { background: var(--secondary); }
+.skill-item h3 { font-size: 24px; margin-bottom: 15px; }
+.skill-item p { color: #666; font-size: 15px; }
+
+/* Projects Section */
+.project-list { display: grid; grid-template-columns: 1fr; gap: 50px; }
+.project-row { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
+.project-info h3 { font-size: 32px; margin-bottom: 20px; }
+.project-info p { color: #555; margin-bottom: 20px; font-size: 17px; }
+
+/* Contact Box */
+.contact-container { text-align: center; padding: 100px 0; }
+.contact-container h2 { font-size: clamp(30px, 5vw, 70px); margin-bottom: 50px; }
+.btn-main {
+  padding: 20px 50px; background: var(--text); color: var(--bg);
+  text-decoration: none; font-weight: 700; border-radius: 100px; transition: 0.3s;
+}
+.btn-main:hover { background: var(--accent); transform: scale(1.05); }
+
+@media (max-width: 768px) {
+  .project-row { grid-template-columns: 1fr; }
+  header { flex-direction: column; gap: 20px; }
 }
 
-.hero p {
-  color: var(--text-dim); font-size: 1.2rem; letter-spacing: 4px;
-  text-transform: uppercase; margin-bottom: 40px;
-  animation: fadeInUp 1.2s ease forwards;
-}
-
-.section { padding: 120px 10%; opacity: 0; transform: translateY(30px); transition: 1s; }
-.section.visible { opacity: 1; transform: translateY(0); }
-
-.grid {
-  display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 30px; margin-top: 60px;
-}
-
-.card {
-  background: var(--glass); padding: 50px; border-radius: 30px;
-  border: 1px solid rgba(255,255,255,0.05); transition: 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
-
-.card:hover {
-  background: rgba(255,255,255,0.07);
-  border-color: var(--accent);
-  transform: scale(1.02);
-}
-
-.card h3 { font-family: 'Syne', sans-serif; font-size: 1.8rem; margin-bottom: 15px; color: var(--accent); }
-
-/* Contact Specific Styling */
-.cta-box {
-  background: linear-gradient(45deg, #111, #000);
-  padding: 60px; border-radius: 40px; text-align: center;
-  border: 1px solid var(--accent); box-shadow: 0 0 50px rgba(0,242,254,0.1);
-}
-
-.btn-elite {
-  padding: 18px 40px; background: white; color: black;
-  text-decoration: none; border-radius: 100px; font-weight: 800;
-  display: inline-block; margin: 10px; transition: 0.4s;
-  font-family: 'Syne', sans-serif; text-transform: uppercase;
-  font-size: 0.9rem;
-}
-
-.btn-elite:hover { background: var(--accent); transform: translateY(-5px); }
-
-@keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(40px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-footer { padding: 60px; text-align: center; color: #444; font-weight: 700; }
+footer { padding: 50px 5%; display: flex; justify-content: space-between; color: #999; font-size: 12px; }
 
 </style>
 </head>
 <body>
 
-<div class="mesh"></div>
-
 <header>
-  <div class="logo">YEASIN KHAN<span style="color:var(--accent)">_</span></div>
+  <div class="logo">YEASIN KHAN</div>
   <nav>
-    <a href="#skills">STACK</a>
-    <a href="#contact">CONTACT</a>
+    <a href="#about">BIO</a>
+    <a href="#skills">SKILLS</a>
+    <a href="#projects">WORK</a>
+    <a href="#contact">TALK</a>
   </nav>
 </header>
 
 <section class="hero">
-  <p>Bangladesh Based • Entrepreneur</p>
-  <h1>CRAFTING<br>DIGITAL FUTURE</h1>
-  <a href="#contact" class="btn-elite" style="background:var(--accent)">Get In Touch</a>
+  <p>BASED IN BANGLADESH — 2026</p>
+  <h1>TECH STRATEGIST <br> & FOUNDER.</h1>
+  <p>I build digital assets and scale tech businesses. Currently leading <b>Tech Lounge</b> to provide premium gadget solutions.</p>
+</section>
+
+<section class="section" id="about">
+  <span class="section-title">01 / ABOUT ME</span>
+  <h2 style="font-size: 36px; max-width: 900px;">
+    I AM AN ENTREPRENEUR DRIVEN BY TECHNOLOGY. I BRIDGE THE GAP BETWEEN TECHNICAL CODE AND REAL-WORLD BUSINESS GROWTH.
+  </h2>
 </section>
 
 <section class="section" id="skills">
-  <h2 style="font-family:'Syne'; font-size:3rem; margin-bottom:20px;">CORE <span style="color:var(--accent)">STACK</span></h2>
-  <div class="grid">
-    <div class="card">
+  <span class="section-title">02 / EXPERTISE</span>
+  <div class="skills-grid">
+    <div class="skill-item">
       <h3>E-COMMERCE</h3>
-      <p>Scaling Tech Lounge with premium gadgets. Expert in logistics and online sales optimization.</p>
+      <p>Mastering Shopify, WooCommerce, and logistics for Tech Lounge.</p>
     </div>
-    <div class="card">
-      <h3>UI ARCHITECT</h3>
-      <p>Building high-end, bold digital experiences that define modern entrepreneurship.</p>
+    <div class="skill-item">
+      <h3>FRONT-END</h3>
+      <p>Crafting clean, fast, and responsive user interfaces using modern CSS.</p>
     </div>
-    <div class="card">
-      <h3>GROWTH</h3>
-      <p>Strategic social media positioning and brand building in the competitive tech market.</p>
+    <div class="skill-item">
+      <h3>MARKETING</h3>
+      <p>Growth hacking and social media strategies for tech products.</p>
+    </div>
+    <div class="skill-item">
+      <h3>STRATEGY</h3>
+      <p>Consulting for online startups to improve conversion and brand identity.</p>
     </div>
   </div>
 </section>
 
-<section class="section contact" id="contact">
-  <div class="cta-box">
-    <h2 style="font-family:'Syne'; font-size: clamp(30px, 5vw, 50px); margin-bottom:20px;">CONTACT ME</h2>
-    <p style="color: var(--text-dim); margin-bottom: 30px; font-size: 1.1rem;">Email: khanyeasin1020@gmail.com</p>
+<section class="section" id="projects">
+  <span class="section-title">03 / SELECTED WORK</span>
+  <div class="project-list">
+    <div class="project-row">
+      <div class="project-info">
+        <h3>TECH LOUNGE</h3>
+        <p>A premium destination for tech accessories. Managing inventory, customer relations, and digital presence.</p>
+        <a href="https://www.facebook.com/share/1Djc16johE/?mibextid=wwXIfr" target="_blank" style="color:var(--accent); font-weight:700;">VISIT PAGE →</a>
+      </div>
+      <div style="background:var(--secondary); height:300px; border-radius:20px;"></div> </div>
     
-    <div style="display: flex; justify-content: center; gap: 15px; flex-wrap: wrap;">
-      <a href="https://www.facebook.com/share/1Djc16johE/?mibextid=wwXIfr" target="_blank" class="btn-elite" style="background: #1877F2; color: white;">
-        Facebook: Tech Lounge
-      </a>
-      
-      <a href="https://wa.me/8801913836395" target="_blank" class="btn-elite" style="background: #25D366; color: white;">
-        WhatsApp Me
-      </a>
+    <div class="project-row" style="direction: rtl; text-align: left;">
+      <div class="project-info" style="direction: ltr;">
+        <h3>DIGITAL PORTFOLIO</h3>
+        <p>This very space—a reflection of my technical skills and entrepreneurial journey built with clean code.</p>
+      </div>
+      <div style="background:var(--secondary); height:300px; border-radius:20px;"></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="contact">
+  <span class="section-title">04 / CONNECT</span>
+  <div class="contact-container">
+    <h2>WANT TO START <br> A PROJECT?</h2>
+    <p style="margin-bottom: 50px; color:#666;">khanyeasin1020@gmail.com</p>
+    <div style="display:flex; justify-content:center; gap:20px; flex-wrap:wrap;">
+      <a href="https://wa.me/8801913836395" class="btn-main">WHATSAPP</a>
+      <a href="https://www.facebook.com/share/1Djc16johE/?mibextid=wwXIfr" class="btn-main" style="background:var(--secondary); color:black;">FACEBOOK</a>
     </div>
   </div>
 </section>
 
 <footer>
-  <p>DESIGNED BY YEASIN KHAN &copy; 2026</p>
+  <p>© 2026 YEASIN KHAN</p>
+  <p>BUILT WITH PASSION IN BANGLADESH</p>
 </footer>
-
-<script>
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) entry.target.classList.add('visible');
-    });
-  }, { threshold: 0.1 });
-
-  document.querySelectorAll('.section').forEach(section => observer.observe(section));
-</script>
 
 </body>
 </html>
