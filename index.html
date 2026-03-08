@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Yeasin Khan | Portfolio</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial, sans-serif;
+}
+
+body{
+background:#f5f5f5;
+color:#333;
+}
+
+/* Header */
+
+header{
+background:#000;
+color:#fff;
+padding:20px 10%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+nav a{
+color:white;
+margin-left:20px;
+text-decoration:none;
+font-weight:bold;
+}
+
+nav a:hover{
+color:#007BFF;
+}
+
+/* Hero */
+
+.hero{
+height:90vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+background:white;
+}
+
+.hero h1{
+font-size:50px;
+margin-bottom:10px;
+}
+
+.hero span{
+color:#007BFF;
+}
+
+.hero p{
+font-size:18px;
+margin-bottom:25px;
+}
+
+.btn{
+padding:12px 25px;
+background:#007BFF;
+color:white;
+text-decoration:none;
+border-radius:6px;
+}
+
+/* Sections */
+
+.section{
+padding:80px 10%;
+}
+
+.section h2{
+text-align:center;
+margin-bottom:40px;
+}
+
+/* Skills */
+
+.skills{
+display:flex;
+justify-content:center;
+gap:20px;
+flex-wrap:wrap;
+}
+
+.skill{
+background:white;
+padding:20px;
+border-radius:8px;
+box-shadow:0 0 10px rgba(0,0,0,0.1);
+}
+
+/* Projects */
+
+.projects{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+}
+
+.project{
+background:white;
+padding:20px;
+border-radius:8px;
+box-shadow:0 0 10px rgba(0,0,0,0.1);
+}
+
+/* Contact */
+
+.contact{
+text-align:center;
+}
+
+footer{
+background:#000;
+color:white;
+text-align:center;
+padding:20px;
+margin-top:40px;
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+<h2>Yeasin Khan</h2>
+<nav>
+<a href="#about">About</a>
+<a href="#skills">Skills</a>
+<a href="#projects">Projects</a>
+<a href="#contact">Contact</a>
+</nav>
+</header>
+
+<section class="hero">
+<h1>Hello, I'm <span>Yeasin</span></h1>
+<p>Tech Enthusiast • Online Entrepreneur</p>
+<a class="btn" href="#projects">View My Work</a>
+</section>
+
+<section class="section" id="about">
+<h2>About Me</h2>
+<p style="text-align:center; max-width:600px; margin:auto;">
+I'm a tech enthusiast from Bangladesh. I run a tech accessories business called
+Tech Lounge and I enjoy building websites, blogs, and online stores.
+</p>
+</section>
+
+<section class="section" id="skills">
+<h2>Skills</h2>
+
+<div class="skills">
+<div class="skill">Website Creation</div>
+<div class="skill">Online Business</div>
+<div class="skill">Social Media Marketing</div>
+<div class="skill">Tech Products</div>
+</div>
+
+</section>
+
+<section class="section" id="projects">
+<h2>Projects</h2>
+
+<div class="projects">
+
+<div class="project">
+<h3>Tech Lounge</h3>
+<p>My tech accessories business page.</p>
+</div>
+
+<div class="project">
+<h3>Blog Website</h3>
+<p>A website where I share tech tips and guides.</p>
+</div>
+
+<div class="project">
+<h3>Online Store</h3>
+<p>An ecommerce store selling gadgets.</p>
+</div>
+
+</div>
+
+</section>
+
+<section class="section contact" id="contact">
+<h2>Contact Me</h2>
+<p>Email: your@email.com</p>
+<p>Facebook: Tech Lounge</p>
+</section>
+
+<footer>
+<p>© 2026 Yeasin Khan</p>
+</footer>
+
+</body>
+</html>
