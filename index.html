@@ -3,208 +3,188 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Yeasin Khan | Portfolio</title>
+<title>Yeasin Khan | Digital Architect</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;700;800&family=Syne:wght@700;800&display=swap" rel="stylesheet">
 
 <style>
-
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Arial, sans-serif;
+:root {
+  --bg: #050505;
+  --accent: #00f2fe;
+  --accent-2: #4facfe;
+  --text-dim: #a0a0a0;
+  --glass: rgba(255, 255, 255, 0.03);
 }
 
-body{
-background:#f5f5f5;
-color:#333;
+* {
+  margin: 0; padding: 0; box-sizing: border-box;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  scroll-behavior: smooth;
 }
 
-/* Header */
-
-header{
-background:#000;
-color:#fff;
-padding:20px 10%;
-display:flex;
-justify-content:space-between;
-align-items:center;
+body {
+  background-color: var(--bg);
+  color: white;
+  overflow-x: hidden;
 }
 
-nav a{
-color:white;
-margin-left:20px;
-text-decoration:none;
-font-weight:bold;
+::selection { background: var(--accent); color: #000; }
+
+.mesh {
+  position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+  background: radial-gradient(circle at 50% 50%, #1a1a1a 0%, #050505 100%);
+  z-index: -1;
 }
 
-nav a:hover{
-color:#007BFF;
+header {
+  position: fixed; width: 100%; padding: 25px 8%;
+  display: flex; justify-content: space-between; align-items: center;
+  backdrop-filter: blur(15px); z-index: 1000;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
 }
 
-/* Hero */
+.logo { font-family: 'Syne', sans-serif; font-size: 1.5rem; font-weight: 800; letter-spacing: -1px; }
 
-.hero{
-height:90vh;
-display:flex;
-flex-direction:column;
-justify-content:center;
-align-items:center;
-text-align:center;
-background:white;
+nav a {
+  color: var(--text-dim); margin-left: 35px; text-decoration: none;
+  font-weight: 600; font-size: 0.9rem; transition: 0.4s;
 }
 
-.hero h1{
-font-size:50px;
-margin-bottom:10px;
+nav a:hover { color: var(--accent); text-shadow: 0 0 10px var(--accent); }
+
+.hero {
+  height: 100vh; display: flex; flex-direction: column;
+  justify-content: center; align-items: center; text-align: center;
+  padding: 0 10%;
 }
 
-.hero span{
-color:#007BFF;
+.hero h1 {
+  font-family: 'Syne', sans-serif; font-size: clamp(50px, 10vw, 100px);
+  line-height: 0.9; margin-bottom: 20px; font-weight: 800;
+  background: linear-gradient(to bottom, #fff 40%, var(--accent-2));
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  animation: fadeInUp 1s ease forwards;
 }
 
-.hero p{
-font-size:18px;
-margin-bottom:25px;
+.hero p {
+  color: var(--text-dim); font-size: 1.2rem; letter-spacing: 4px;
+  text-transform: uppercase; margin-bottom: 40px;
+  animation: fadeInUp 1.2s ease forwards;
 }
 
-.btn{
-padding:12px 25px;
-background:#007BFF;
-color:white;
-text-decoration:none;
-border-radius:6px;
+.section { padding: 120px 10%; opacity: 0; transform: translateY(30px); transition: 1s; }
+.section.visible { opacity: 1; transform: translateY(0); }
+
+.grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px; margin-top: 60px;
 }
 
-/* Sections */
-
-.section{
-padding:80px 10%;
+.card {
+  background: var(--glass); padding: 50px; border-radius: 30px;
+  border: 1px solid rgba(255,255,255,0.05); transition: 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-.section h2{
-text-align:center;
-margin-bottom:40px;
+.card:hover {
+  background: rgba(255,255,255,0.07);
+  border-color: var(--accent);
+  transform: scale(1.02);
 }
 
-/* Skills */
+.card h3 { font-family: 'Syne', sans-serif; font-size: 1.8rem; margin-bottom: 15px; color: var(--accent); }
 
-.skills{
-display:flex;
-justify-content:center;
-gap:20px;
-flex-wrap:wrap;
+/* Contact Specific Styling */
+.cta-box {
+  background: linear-gradient(45deg, #111, #000);
+  padding: 60px; border-radius: 40px; text-align: center;
+  border: 1px solid var(--accent); box-shadow: 0 0 50px rgba(0,242,254,0.1);
 }
 
-.skill{
-background:white;
-padding:20px;
-border-radius:8px;
-box-shadow:0 0 10px rgba(0,0,0,0.1);
+.btn-elite {
+  padding: 18px 40px; background: white; color: black;
+  text-decoration: none; border-radius: 100px; font-weight: 800;
+  display: inline-block; margin: 10px; transition: 0.4s;
+  font-family: 'Syne', sans-serif; text-transform: uppercase;
+  font-size: 0.9rem;
 }
 
-/* Projects */
+.btn-elite:hover { background: var(--accent); transform: translateY(-5px); }
 
-.projects{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:20px;
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
-.project{
-background:white;
-padding:20px;
-border-radius:8px;
-box-shadow:0 0 10px rgba(0,0,0,0.1);
-}
-
-/* Contact */
-
-.contact{
-text-align:center;
-}
-
-footer{
-background:#000;
-color:white;
-text-align:center;
-padding:20px;
-margin-top:40px;
-}
+footer { padding: 60px; text-align: center; color: #444; font-weight: 700; }
 
 </style>
 </head>
-
 <body>
 
+<div class="mesh"></div>
+
 <header>
-<h2>Yeasin Khan</h2>
-<nav>
-<a href="#about">About</a>
-<a href="#skills">Skills</a>
-<a href="#projects">Projects</a>
-<a href="#contact">Contact</a>
-</nav>
+  <div class="logo">YEASIN KHAN<span style="color:var(--accent)">_</span></div>
+  <nav>
+    <a href="#skills">STACK</a>
+    <a href="#contact">CONTACT</a>
+  </nav>
 </header>
 
 <section class="hero">
-<h1>Hello, I'm <span>Yeasin</span></h1>
-<p>Tech Enthusiast • Online Entrepreneur</p>
-<a class="btn" href="#projects">View My Work</a>
-</section>
-
-<section class="section" id="about">
-<h2>About Me</h2>
-<p style="text-align:center; max-width:600px; margin:auto;">
-I'm a tech enthusiast from Bangladesh. I run a tech accessories business called
-Tech Lounge and I enjoy building websites, blogs, and online stores.
-</p>
+  <p>Bangladesh Based • Entrepreneur</p>
+  <h1>CRAFTING<br>DIGITAL FUTURE</h1>
+  <a href="#contact" class="btn-elite" style="background:var(--accent)">Get In Touch</a>
 </section>
 
 <section class="section" id="skills">
-<h2>Skills</h2>
-
-<div class="skills">
-<div class="skill">Website Creation</div>
-<div class="skill">Online Business</div>
-<div class="skill">Social Media Marketing</div>
-<div class="skill">Tech Products</div>
-</div>
-
-</section>
-
-<section class="section" id="projects">
-<h2>Projects</h2>
-
-<div class="projects">
-
-<div class="project">
-<h3>Tech Lounge</h3>
-<p>My tech accessories business page.</p>
-</div>
-
-<div class="project">
-<h3>Blog Website</h3>
-<p>A website where I share tech tips and guides.</p>
-</div>
-
-<div class="project">
-<h3>Online Store</h3>
-<p>An ecommerce store selling gadgets.</p>
-</div>
-
-</div>
-
+  <h2 style="font-family:'Syne'; font-size:3rem; margin-bottom:20px;">CORE <span style="color:var(--accent)">STACK</span></h2>
+  <div class="grid">
+    <div class="card">
+      <h3>E-COMMERCE</h3>
+      <p>Scaling Tech Lounge with premium gadgets. Expert in logistics and online sales optimization.</p>
+    </div>
+    <div class="card">
+      <h3>UI ARCHITECT</h3>
+      <p>Building high-end, bold digital experiences that define modern entrepreneurship.</p>
+    </div>
+    <div class="card">
+      <h3>GROWTH</h3>
+      <p>Strategic social media positioning and brand building in the competitive tech market.</p>
+    </div>
+  </div>
 </section>
 
 <section class="section contact" id="contact">
-<h2>Contact Me</h2>
-<p>Email: your@email.com</p>
-<p>Facebook: Tech Lounge</p>
+  <div class="cta-box">
+    <h2 style="font-family:'Syne'; font-size: clamp(30px, 5vw, 50px); margin-bottom:20px;">CONTACT ME</h2>
+    <p style="color: var(--text-dim); margin-bottom: 30px; font-size: 1.1rem;">Email: khanyeasin1020@gmail.com</p>
+    
+    <div style="display: flex; justify-content: center; gap: 15px; flex-wrap: wrap;">
+      <a href="https://www.facebook.com/share/1Djc16johE/?mibextid=wwXIfr" target="_blank" class="btn-elite" style="background: #1877F2; color: white;">
+        Facebook: Tech Lounge
+      </a>
+      
+      <a href="https://wa.me/8801913836395" target="_blank" class="btn-elite" style="background: #25D366; color: white;">
+        WhatsApp Me
+      </a>
+    </div>
+  </div>
 </section>
 
 <footer>
-<p>© 2026 Yeasin Khan</p>
+  <p>DESIGNED BY YEASIN KHAN &copy; 2026</p>
 </footer>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add('visible');
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.section').forEach(section => observer.observe(section));
+</script>
 
 </body>
 </html>
